@@ -37,10 +37,8 @@ public with sharing class ConnectMaxCoverageCallout {
             Http http = new Http();
             HttpRequest request = new HttpRequest();
 
-            String baseUrl = Url.getOrgDomainUrl().toExternalForm();
-            request.setEndpoint(baseUrl +  '/services/apexrest/api/v1/coverageCheck/' + cep);
+            request.setEndpoint('callout:ConnectMax_API_Credential/services/apexrest/api/v1/coverageCheck/' + cep);
             request.setMethod('GET');
-            request.setHeader('Authorization', 'Bearer ' + UserInfo.getSessionId());
             request.setHeader('Content-Type', 'application/json');
 
             HttpResponse response = http.send(request);
